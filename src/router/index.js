@@ -4,13 +4,18 @@ import Home from '../views/Home.vue'
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('../views/About.vue')
+    path: '/dashboard',
+    name: 'dashboard',
+    component: () => import('../views/Dashboard.vue')
+  },
+  {
+    path: '/add',
+    name: 'addLog',
+    component: () => import('../views/AddLog.vue')
   },
   {
     path: '/event/:id',
