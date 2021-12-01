@@ -1,6 +1,5 @@
 <template>
-  <div class="events container">
-    <h2 class="subtitle is-3">Check out our upcoming events</h2>
+  <div class="logs container">
     <div class="columns is-multiline">
       <!-- 
         :key binds a unique key to each event
@@ -8,13 +7,13 @@
         router-link makes each card a clickable link and gives LogSingle the correct id
        -->
       <div
-        v-for="event in events"
-        :key="event.id"
-        :event = "event" 
+        v-for="log in logs"
+        :key="log.id"
+        :log = "log" 
         class="column is-one-quarter"
       >
-        <router-link :to="'/event/' + event.id">
-          <LogCard :event = "event" />
+        <router-link :to="'/log/' + log.id">
+          <LogCard :log="log" />
         </router-link>
         
       </div>
@@ -33,36 +32,59 @@
     },
     data() {
       return {
-        event: {},
-        events: [
+        log: {},
+        logs: [
           {
             id: 1,
-            name: 'Charity Ball',
-            category: 'Fundraising',
-            description:
-              'Spend an elegant night of dinner and dancing with us as we raise money for our new rescue farm.',
-            featuredImage: 'https://placekitten.com/500/500',
-            images: [
-              'https://placekitten.com/500/500',
-              'https://placekitten.com/500/500',
-              'https://placekitten.com/500/500',
-            ],
-            location: '1234 Fancy Ave',
-            date: '12-25-2019',
-            time: '11:30',
+            type: 'Bird',
+            name: "Clark's Nutcracker",
+            unique_features: 
+              `
+                The size of a jay but the shape of a crow.
+                Short tails and rounded, crestless heads.
+                Long, straight, and sharp-tipped bill.
+              `,
+            notes:
+              `
+                They are native to the mountains of western North America.
+                During the Lewis and Clark expedition, William Clark first observed it in 1805 along the banks of the Salmon River. 
+              `,
+            image: 'https://placekitten.com/500/500'
           },
           {
             id: 2,
-            name: 'Rescue Center Goods Drive',
-            category: 'Adoptions',
-            description:
-              'Come to our donation drive to help us replenish our stock of pet food, toys, bedding, etc. We will have live bands, games, food trucks, and much more.',
-            featuredImage: 'https://placekitten.com/500/500',
-            images: ['https://placekitten.com/500/500'],
-            location: '1234 Dog Alley',
-            date: '11-21-2019',
-            time: '12:00',
+            type: 'Bird',
+            name: "Canada Jays",
+            unique_features: 
+              `
+                The size of a jay but the shape of a crow.
+                Short tails and rounded, crestless heads.
+                Long, straight, and sharp-tipped bill.
+              `,
+            notes:
+              `
+                They are native to the mountains of western North America.
+                During the Lewis and Clark expedition, William Clark first observed it in 1805 along the banks of the Salmon River. 
+              `,
+            image: 'https://placekitten.com/500/500'
           },
+          {
+            id: 3,
+            type: 'Bird',
+            name: "Steller's Jay",
+            unique_features: 
+              `
+                The size of a jay but the shape of a crow.
+                Short tails and rounded, crestless heads.
+                Long, straight, and sharp-tipped bill.
+              `,
+            notes:
+              `
+                They are native to the mountains of western North America.
+                During the Lewis and Clark expedition, William Clark first observed it in 1805 along the banks of the Salmon River. 
+              `,
+            image: 'https://placekitten.com/500/500'
+          }
         ]
       }
     }
@@ -71,7 +93,7 @@
 
 
 <style lang="scss" scoped>
-  .events {
+  .logs {
     margin-top: 100px;
     text-align: center;
   }

@@ -8,17 +8,12 @@ const routes = [
     component: Home
   },
   {
-    path: '/dashboard',
-    name: 'dashboard',
-    component: () => import('../views/Dashboard.vue')
-  },
-  {
     path: '/add',
     name: 'addLog',
     component: () => import('../views/AddLog.vue')
   },
   {
-    path: '/event/:id',
+    path: '/log/:id',
     name: 'logSingle',
     component: () => import('../views/LogSingle.vue')
   }

@@ -3,29 +3,19 @@
     <section class="hero is-primary">
       <div class="hero-body">
         <div class="container">
-          <h1 class="title">{{ event.name }}</h1>
+          <h1 class="title">{{ log.name }}</h1>
           <h2 class="subtitle ">
-            <strong>Date:</strong> {{ event.date }}
-            <br />
-            <strong>Time:</strong> {{ event.time }}
+            <strong>Type:</strong> {{ log.type }}
           </h2>
         </div>
       </div>
     </section>
     <section class="event-content">
       <div class="container">
-        <p class="is-size-4 description">{{ event.description }}</p>
-        <p class="is-size-5"><strong>Location:</strong> {{ event.location }}</p>
-        <p class="is-size-5"><strong>Category:</strong> {{ event.category }}</p>
-        <div class="event-images columns is-multiline has-text-centered">
-          <div
-            v-for="image in event.images"
-            :key="image.id"
-            class="column is-one-third"
-          >
-            <img :src="image" :alt="event.name" />
-          </div>
-        </div>
+        <p class="is-size-4 description">{{ log.unique_features }}</p>
+        <p class="is-size-4 description">{{ log.notes }}</p>
+        <p class="is-size-5"><strong>Status:</strong> {{ log.status }}</p>
+        <img :src="log.image" :alt="log.name" />
       </div>
     </section>
   </div>
@@ -36,45 +26,71 @@
   export default {
       name: 'LogSingle',
       data() {
-      return {
-        event: {},
-        events: [
-          {
-            id: 1,
-            name: 'Charity Ball',
-            category: 'Fundraising',
-            description:
-              'Spend an elegant night of dinner and dancing with us as we raise money for our new rescue farm.',
-            featuredImage: 'https://placekitten.com/500/500',
-            images: [
-              'https://placekitten.com/500/500',
-              'https://placekitten.com/500/500',
-              'https://placekitten.com/500/500',
-            ],
-            location: '1234 Fancy Ave',
-            date: '12-25-2019',
-            time: '11:30',
-          },
-          {
-            id: 2,
-            name: 'Rescue Center Goods Drive',
-            category: 'Adoptions',
-            description:
-              'Come to our donation drive to help us replenish our stock of pet food, toys, bedding, etc. We will have live bands, games, food trucks, and much more.',
-            featuredImage: 'https://placekitten.com/500/500',
-            images: ['https://placekitten.com/500/500'],
-            location: '1234 Dog Alley',
-            date: '11-21-2019',
-            time: '12:00',
-          },
-        ]
-      };
-    },
+        return {
+          log: {},
+          logs: [
+            {
+              id: 1,
+              type: 'Bird',
+              name: "Clark's Nutcracker",
+              unique_features: 
+                `
+                  The size of a jay but the shape of a crow.
+                  Short tails and rounded, crestless heads.
+                  Long, straight, and sharp-tipped bill.
+                `,
+              notes:
+                `
+                  They are native to the mountains of western North America.
+                  During the Lewis and Clark expedition, William Clark first observed it in 1805 along the banks of the Salmon River. 
+                `,
+              image: 'https://placekitten.com/500/500',
+              status: 'public'
+            },
+            {
+              id: 2,
+              type: 'Bird',
+              name: "Canada Jays",
+              unique_features: 
+                `
+                  The size of a jay but the shape of a crow.
+                  Short tails and rounded, crestless heads.
+                  Long, straight, and sharp-tipped bill.
+                `,
+              notes:
+                `
+                  They are native to the mountains of western North America.
+                  During the Lewis and Clark expedition, William Clark first observed it in 1805 along the banks of the Salmon River. 
+                `,
+              image: 'https://placekitten.com/500/500',
+              status: 'private'
+            },
+            {
+              id: 3,
+              type: 'Bird',
+              name: "Steller's Jay",
+              unique_features: 
+                `
+                  The size of a jay but the shape of a crow.
+                  Short tails and rounded, crestless heads.
+                  Long, straight, and sharp-tipped bill.
+                `,
+              notes:
+                `
+                  They are native to the mountains of western North America.
+                  During the Lewis and Clark expedition, William Clark first observed it in 1805 along the banks of the Salmon River. 
+                `,
+              image: 'https://placekitten.com/500/500',
+              status: 'public'
+            }
+          ]
+        }
+      },
     created() {
       // the created lifecycle hook lets you run code right after the instance is created
       const ID = Number(this.$route.params.id);
-      let event = this.events.find((event) => event.id === ID);
-      this.event = event;
+      let log = this.logs.find((log) => log.id === ID);
+      this.log = log;
     }
   };
 </script>

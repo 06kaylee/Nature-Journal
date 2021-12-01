@@ -9,7 +9,6 @@
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
         <router-link to="/" class="navbar-item">Home</router-link>
-        <router-link to="/dashboard" class="navbar-item">Dashboard</router-link>
         <router-link to="/add" class="navbar-item">Add a Log</router-link>
       </div>
 
@@ -17,7 +16,7 @@
         <div class="navbar-item">
           <div class="buttons">
             <a class="button is-success">
-              <strong>Sign up</strong>
+              Sign up
             </a>
             <a class="button is-success">
               Log in
