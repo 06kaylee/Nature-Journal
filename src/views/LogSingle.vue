@@ -1,23 +1,35 @@
 <template>
-  <div class="event-single">
-    <section class="hero is-primary">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">{{ log.name }}</h1>
-          <h2 class="subtitle ">
-            <strong>Type:</strong> {{ log.type }}
-          </h2>
-        </div>
+  <div class="content">
+    <div class="columns is-centered">
+      <div class="column is-5 image-container">
+        <figure class="image is-square">
+          <img :src="log.image">
+        </figure>
       </div>
-    </section>
-    <section class="event-content">
-      <div class="container">
-        <p class="is-size-4 description">{{ log.unique_features }}</p>
-        <p class="is-size-4 description">{{ log.notes }}</p>
-        <p class="is-size-5"><strong>Status:</strong> {{ log.status }}</p>
-        <img :src="log.image" :alt="log.name" />
+      <div class="column is-4">
+        <p class="is-size-5 log-content">
+          <strong>Type: </strong>
+          {{ log.type }}
+        </p>
+        <p class="is-size-5 log-content">
+          <strong>Name: </strong>
+          {{ log.name }}
+        </p>
+        <p class="is-size-5 log-content">
+          <strong>Unique Features: </strong>
+          {{ log.unique_features }}
+        </p>
+        <p class="is-size-5 log-content">
+          <strong>Notes: </strong>
+          {{ log.notes }}
+        </p>
+        <p class="is-size-5 log-content">
+          <strong>Status: </strong>
+          {{ log.status }}
+        </p>
       </div>
-    </section>
+    </div>
+
   </div>
 </template>
 
@@ -97,16 +109,15 @@
 
 
 <style lang="scss" scoped>
-  .event-single {
-    margin-top: 30px;
+  .image-container {
+    max-width: 500px;
   }
-  .hero {
-    margin-bottom: 70px;
+
+  .content {
+    margin-top: 2em;
   }
-  .event-images {
-    margin-top: 50px;
-  }
-  .description {
-    margin-bottom: 30px;
+
+  .log-content {
+    text-align: left;
   }
 </style>

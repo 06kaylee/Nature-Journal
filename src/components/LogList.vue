@@ -94,7 +94,7 @@
 
 <style lang="scss" scoped>
   .logs {
-    margin-top: 100px;
+    margin-top: 2em;
     text-align: center;
   }
 </style>
