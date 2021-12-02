@@ -15,12 +15,14 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <!-- Checks that the SDK client is not currently loading before accessing its methods-->
-            <div v-if="!$auth.loading">
-              <a v-if="!$auth.isAuthenticated" @click="login" class="button is-success">Login</a>
-              <a v-if="$auth.isAuthenticated" @click="logout" class="button is-success">Log Out</a>
-            </div>
+            <a class="button is-success">
+              Sign up
+            </a>
+            <a class="button is-success">
+              Login
+            </a>
           </div>
+          
         </div>
       </div>
     </div>
