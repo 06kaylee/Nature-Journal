@@ -3,7 +3,7 @@
     <div class="columns is-multiline">
       <!-- 
         :key binds a unique key to each event
-        :event binds the current event in the loop to the event object in data
+        :log binds the current log in the loop to the log object in data
         router-link makes each card a clickable link and gives LogSingle the correct id
        -->
       <div

@@ -15,12 +15,11 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-success">
-              Sign up
-            </a>
-            <a class="button is-success">
-              Log in
-            </a>
+            <!-- Checks that the SDK client is not currently loading before accessing its methods-->
+            <div v-if="!$auth.loading">
+              <a v-if="!$auth.isAuthenticated" @click="login" class="button is-success">Login</a>
+              <a v-if="$auth.isAuthenticated" @click="logout" class="button is-success">Log Out</a>
+            </div>
           </div>
         </div>
       </div>
@@ -31,6 +30,16 @@
 <script>
   export default {
     name: 'NavBar',
+    methods: {
+      login() {
+        this.$auth.loginWithRedirect();
+      },
+      logout() {
+        this.$auth.logout({
+          returnTo: window.location.origin
+        });
+      }
+    }
   };
 </script>
 
