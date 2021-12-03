@@ -12,7 +12,7 @@
         :log = "log" 
         class="column is-one-quarter"
       >
-        <router-link :to="'/log/' + log.id">
+        <router-link :to="'/log/' + log._id">
           <LogCard :log="log" />
         </router-link>
         
@@ -25,6 +25,8 @@
 
 <script>
   import LogCard from '@/components/LogCard';
+  import axios from 'axios';
+
   export default {
     name: 'LogList',
     components: {
@@ -32,60 +34,18 @@
     },
     data() {
       return {
-        log: {},
-        logs: [
-          {
-            id: 1,
-            type: 'Bird',
-            name: "Clark's Nutcracker",
-            unique_features: 
-              `
-                The size of a jay but the shape of a crow.
-                Short tails and rounded, crestless heads.
-                Long, straight, and sharp-tipped bill.
-              `,
-            notes:
-              `
-                They are native to the mountains of western North America.
-                During the Lewis and Clark expedition, William Clark first observed it in 1805 along the banks of the Salmon River. 
-              `,
-            image: 'https://placekitten.com/500/500'
-          },
-          {
-            id: 2,
-            type: 'Bird',
-            name: "Canada Jays",
-            unique_features: 
-              `
-                The size of a jay but the shape of a crow.
-                Short tails and rounded, crestless heads.
-                Long, straight, and sharp-tipped bill.
-              `,
-            notes:
-              `
-                They are native to the mountains of western North America.
-                During the Lewis and Clark expedition, William Clark first observed it in 1805 along the banks of the Salmon River. 
-              `,
-            image: 'https://placekitten.com/500/500'
-          },
-          {
-            id: 3,
-            type: 'Bird',
-            name: "Steller's Jay",
-            unique_features: 
-              `
-                The size of a jay but the shape of a crow.
-                Short tails and rounded, crestless heads.
-                Long, straight, and sharp-tipped bill.
-              `,
-            notes:
-              `
-                They are native to the mountains of western North America.
-                During the Lewis and Clark expedition, William Clark first observed it in 1805 along the banks of the Salmon River. 
-              `,
-            image: 'https://placekitten.com/500/500'
-          }
-        ]
+        logs: []
+      }
+    },
+    async created() {
+      try {
+        const res = await axios.get('http://localhost:3000/logs');
+        const data = res.data;
+        console.log(data);
+        this.logs = data;
+      }
+      catch(err) {
+        console.log(`Error getting /logs: ${err}`);
       }
     }
   };

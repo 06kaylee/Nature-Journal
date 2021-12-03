@@ -3,7 +3,7 @@
 
     <div class="card-image">
       <figure class="image is-square">
-        <img :src="log.image" :alt="log.name">
+        <img :src="log.item_image" :alt="log.name">
       </figure>
     </div>
 
@@ -20,7 +20,7 @@
       </div>
 
       <div class="content">
-        <p class="subtitle">{{ log.name }}</p>
+        <p class="subtitle">{{ log.item_name }}</p>
       </div>
     </div>
 

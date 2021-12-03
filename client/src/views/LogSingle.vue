@@ -2,18 +2,19 @@
   <div class="content">
     <div class="columns is-centered">
       <div class="column is-5 image-container">
+        {{ log }}
         <figure class="image is-square">
-          <img :src="log.image">
+          <img :src="log.item_image">
         </figure>
       </div>
       <div class="column is-4">
         <p class="is-size-5 log-content">
           <strong>Type: </strong>
-          {{ log.type }}
+          {{ log.item_type }}
         </p>
         <p class="is-size-5 log-content">
           <strong>Name: </strong>
-          {{ log.name }}
+          {{ log.item_name }}
         </p>
         <p class="is-size-5 log-content">
           <strong>Unique Features: </strong>
@@ -35,74 +36,19 @@
 
 
 <script>
+import axios from 'axios';
+
   export default {
-      name: 'LogSingle',
-      data() {
-        return {
-          log: {},
-          logs: [
-            {
-              id: 1,
-              type: 'Bird',
-              name: "Clark's Nutcracker",
-              unique_features: 
-                `
-                  The size of a jay but the shape of a crow.
-                  Short tails and rounded, crestless heads.
-                  Long, straight, and sharp-tipped bill.
-                `,
-              notes:
-                `
-                  They are native to the mountains of western North America.
-                  During the Lewis and Clark expedition, William Clark first observed it in 1805 along the banks of the Salmon River. 
-                `,
-              image: 'https://placekitten.com/500/500',
-              status: 'public'
-            },
-            {
-              id: 2,
-              type: 'Bird',
-              name: "Canada Jays",
-              unique_features: 
-                `
-                  The size of a jay but the shape of a crow.
-                  Short tails and rounded, crestless heads.
-                  Long, straight, and sharp-tipped bill.
-                `,
-              notes:
-                `
-                  They are native to the mountains of western North America.
-                  During the Lewis and Clark expedition, William Clark first observed it in 1805 along the banks of the Salmon River. 
-                `,
-              image: 'https://placekitten.com/500/500',
-              status: 'private'
-            },
-            {
-              id: 3,
-              type: 'Bird',
-              name: "Steller's Jay",
-              unique_features: 
-                `
-                  The size of a jay but the shape of a crow.
-                  Short tails and rounded, crestless heads.
-                  Long, straight, and sharp-tipped bill.
-                `,
-              notes:
-                `
-                  They are native to the mountains of western North America.
-                  During the Lewis and Clark expedition, William Clark first observed it in 1805 along the banks of the Salmon River. 
-                `,
-              image: 'https://placekitten.com/500/500',
-              status: 'public'
-            }
-          ]
-        }
-      },
-    created() {
-      // the created lifecycle hook lets you run code right after the instance is created
-      const ID = Number(this.$route.params.id);
-      let log = this.logs.find((log) => log.id === ID);
-      this.log = log;
+    name: 'LogSingle',
+    data() {
+      return {
+        logs: []
+      }
+    },
+    async created() {
+      const res = await axios.get('http://localhost:3000/logs');
+      const data = res.data;
+      this.logs = data;
     }
   };
 </script>
