@@ -25,7 +25,7 @@
 
 <script>
   import LogCard from '@/components/LogCard';
-  import axios from 'axios';
+  import LogDataService from '../services/LogDataService';
 
   export default {
     name: 'LogList',
@@ -37,17 +37,20 @@
         logs: []
       }
     },
-    async created() {
-      try {
-        const res = await axios.get('http://localhost:3000/logs');
-        const data = res.data;
-        console.log(data);
-        this.logs = data;
+    methods: {
+      getLogs() {
+        LogDataService.getAll()
+          .then(res => {
+            this.logs = res.data;
+          })
+          .catch(err => {
+            console.log(err);
+          })
       }
-      catch(err) {
-        console.log(`Error getting /logs: ${err}`);
-      }
-    }
+    },
+    mounted() {
+      this.getLogs();
+    },
   };
 </script>
 

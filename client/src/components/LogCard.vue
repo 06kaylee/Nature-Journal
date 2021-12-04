@@ -1,11 +1,11 @@
 <template>
   <div class="card">
 
-    <div class="card-image">
+    <!-- <div class="card-image">
       <figure class="image is-square">
         <img :src="log.item_image" :alt="log.name">
       </figure>
-    </div>
+    </div> -->
 
     <div class="card-content">
       <div class="media">

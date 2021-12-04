@@ -3,9 +3,9 @@
     <div class="columns is-centered">
       <div class="column is-5 image-container">
         {{ log }}
-        <figure class="image is-square">
+        <!-- <figure class="image is-square">
           <img :src="log.item_image">
-        </figure>
+        </figure> -->
       </div>
       <div class="column is-4">
         <p class="is-size-5 log-content">
@@ -36,20 +36,30 @@
 
 
 <script>
-import axios from 'axios';
+import LogDataService from '../services/LogDataService';
 
   export default {
     name: 'LogSingle',
     data() {
       return {
-        logs: []
+        log: {}
       }
     },
-    async created() {
-      const res = await axios.get('http://localhost:3000/logs');
-      const data = res.data;
-      this.logs = data;
-    }
+    methods: {
+      getLog(id) {
+        LogDataService.get(id)
+          .then(res => {
+            this.log = res.data;
+            console.log(this.log);
+          })
+          .catch(err => {
+            console.log(err);
+          })
+      }
+    },
+    mounted() {
+      this.getLog(this.$route.params.id);
+    },
   };
 </script>
 
