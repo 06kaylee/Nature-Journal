@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const Log = require("./models/log");
+const logRouter = require("./routes/log.routes");
 
 const app = express();
 
@@ -14,21 +15,22 @@ mongoose.connect('mongodb://localhost:27017/natureJournal')
     console.log(`Mongo error: ${err}`);
   })
 
-app.use(bodyParser.json());
-app.use(cors());
-app.use(express.urlencoded({ extended: true }));
+// Add Access Control Allow Origin headers
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+  
+app.use(bodyParser.json({limit: '50mb'})); 
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+app.use('/logs', logRouter);
 
 
-app.get('/logs', async (req, res) => {
-  const logs = await Log.find({});
-  res.send(logs);
-})
 
-app.get('/logs/:id', async (req, res) => {
-  const id = req.params.id;
-  const log = await Log.findById(id);
-  res.send(log);
-})
 
 app.listen(3000, () => {
     console.log("Server listening on port 3000");

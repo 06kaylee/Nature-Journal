@@ -22,11 +22,13 @@ const LogSchema = new Schema({
       type: String
     },
     item_image: {
-      type: String
+      type: String,
+      required: true
     },
     status: {
       type: String,
-      enum: ['Public', 'Private']
+      enum: ['Public', 'Private'],
+      required: true
     }
 });
 
