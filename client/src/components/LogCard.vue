@@ -25,8 +25,7 @@
     </div>
 
     <footer class="card-footer">
-      <a href="#" class="card-footer-item">Edit</a>
-      <a href="#" class="card-footer-item">Delete</a>
+      <a class="card-footer-item">View</a>
   </footer>
 
   </div>
@@ -34,12 +33,13 @@
 
 
 <script>
-  export default {
-      name: 'LogCard',
-      props: {
-        log: Object
-      }
-  };
+
+export default {
+    name: 'LogCard',
+    props: {
+      log: Object
+    }
+};
 </script>
 
 

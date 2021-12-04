@@ -88,13 +88,12 @@ export default {
       LogDataService.create(data)
         .then((res) => {
           this.log.id = res.data._id;
-          // clear fields
-
+          this.clearFields();
+          this.$router.push({ name: 'home' });
         })
         .catch((err) => {
           console.log(err);
         })
-        this.clearFields();
     },
     onFileChange(e) {
       this.log.item_image = e.target.files[0];
