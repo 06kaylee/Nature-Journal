@@ -2,7 +2,17 @@
   <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bulma.io">
-        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+        <svg height="80" width="80">
+          <defs>
+            <filter id="f1" x="0" y="0" width="200%" height="200%">
+              <feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" />
+              <feBlend in="SourceGraphic" in2="offOut" mode="normal" />
+            </filter>
+          </defs>
+          <rect width="50" height="50" stroke="#5f946d" stroke-width="3"
+          fill="#6cad7d" filter="url(#f1)" />
+          <text x="12" y="32" font-weight="bold" font-family="monospace" font-size="1.5em" fill="#e8b66f">LB</text>
+        </svg>
       </a>
     </div>
 

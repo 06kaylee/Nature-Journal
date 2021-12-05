@@ -25,8 +25,11 @@
     </div>
 
     <footer class="card-footer">
-      <a class="card-footer-item">View</a>
-  </footer>
+      <router-link class="card-footer-item" :to="'/log/edit/' + log._id">
+        <a class="card-footer-item">Edit</a>
+      </router-link>
+    </footer>
+    
 
   </div>
 </template>

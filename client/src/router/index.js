@@ -16,6 +16,16 @@ const routes = [
     path: '/log/:id',
     name: 'logSingle',
     component: () => import('../views/LogSingle.vue')
+  },
+  {
+    path: '/log/edit/:id',
+    name: 'logSingleEdit',
+    component: () => import('../views/LogSingleEdit.vue')
+  },
+  {
+    path: '/techused',
+    name: 'techUsed',
+    component: () => import('../views/TechUsed.vue')
   }
 ]
 
