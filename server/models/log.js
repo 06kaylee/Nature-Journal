@@ -21,10 +21,6 @@ const LogSchema = new Schema({
     notes: {
       type: String
     },
-    item_image: {
-      type: String,
-      required: true
-    },
     status: {
       type: String,
       enum: ['Public', 'Private'],

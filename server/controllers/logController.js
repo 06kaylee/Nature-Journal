@@ -3,18 +3,18 @@ const Log = require("../models/log");
 // create and save a new log
 exports.createLog = (req, res) => {
     console.log(`From log controller: ${req.body.item_type}`);
+
     const newLog = new Log({
         item_type: req.body.item_type,
         item_name: req.body.item_name,
         unique_features: req.body.unique_features ? req.body.unique_features : "",
         notes: req.body.notes ? req.body.notes : "",
-        item_image: req.body.item_image,
         status: req.body.status
     });
+    
     console.log(newLog);
     newLog.save(newLog)
         .then((data) => {
-            console.log("here");
             res.send(data);
         })
         .catch((err) => {
