@@ -83,6 +83,7 @@ import LogDataService from '../services/LogDataService';
           .then(res => {
             console.log(res.data);
             console.log("Updated Successfully!");
+            this.$router.push({ name: 'home' }); // sends user back to home page
           })
           .catch(err => {
             console.log(`Error updating log: ${err}`);

@@ -1,11 +1,11 @@
 <template>
   <div class="card">
 
-    <!-- <div class="card-image">
+    <div class="card-image">
       <figure class="image is-square">
-        <img :src="log.item_image" :alt="log.name">
+        <img src="https://bulma.io/images/placeholders/128x128.png">
       </figure>
-    </div> -->
+    </div>
 
     <div class="card-content">
       <div class="media">

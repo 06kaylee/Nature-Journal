@@ -4,7 +4,12 @@
             <div class="column">
                 <h1 class="detail-title">{{ log.item_name }}</h1>
                 <div class="columns is-centered">
-                    <div class="column is-6 p-col">
+                    <div class="column is-4">
+                        <figure class=" image is-square">
+                            <img src="https://bulma.io/images/placeholders/128x128.png">
+                        </figure>
+                    </div>
+                    <div class="column is-4 p-col">
                         <p>
                             <strong>Type: </strong>
                             {{ log.item_type }}
